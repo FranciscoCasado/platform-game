@@ -1,4 +1,4 @@
-import { Player, Lava, Coin, Vec } from "./actors.js"
+import { Player, Lava, Coin, Vec } from "./actors.js";
 
 let simpleLevelPlan = `
 ......................
@@ -19,12 +19,12 @@ const levelChars = {
 	"@": Player,
 	"o": Coin,
 	"=": Lava, "|": Lava, "v": Lava
-}
+};
 
 
 class Level {
 	constructor(plan) {
-		let rows = this.parseRowFromPlan(plan)
+		let rows = this.parseRowFromPlan(plan);
 		this.height = rows.length;
 		this.width = rows[0].length;
 		this.startActors = [];
@@ -36,12 +36,12 @@ class Level {
 				this.startActors.push(
 					tileType.create(new Vec(x, y), ch));
 				return "empty";
-			})
-		})
+			});
+		});
 	}
 
 	parseRowFromPlan(plan) {
-		return plan.trim().split("\n").map(l => [...l])
+		return plan.trim().split("\n").map(l => [...l]);
 	}
 
 }
