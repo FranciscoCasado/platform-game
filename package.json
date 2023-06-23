@@ -1,0 +1,16 @@
+{
+  "name": "platform-game",
+  "version": "0.0.1",
+  "description": "A simple platform game",
+  "main": "js/game.js",
+  "repository": "https://github.com/FranciscoCasado/platform-game.git",
+  "author": "Francisco Casado Castro <hola@franciscocasado.cl>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.43.0"
+  },
+  "scripts": {
+    "eslint:github-action": "eslint js/"
+  }
+}

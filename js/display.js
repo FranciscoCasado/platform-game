@@ -7,7 +7,7 @@ function elt(name, attrs, ...children) {
 	for (let child of children) {
 		dom.appendChild(child);
 	}
-	return dom
+	return dom;
 }
 
 class DOMDisplay {
@@ -29,12 +29,9 @@ function drawGrid(level) {
 	}, ...level.rows.map(row => elt(
 		"tr", { style: `height: ${scale}px` },
 		...row.map(type => elt("td", { class: type }))
-	)))
+	)));
 }
 
-function drawActors() {
 
-}
-
-export { DOMDisplay }
+export { DOMDisplay };
 
