@@ -34,7 +34,7 @@ class Level {
 				let tileType = levelChars[ch];
 				if (typeof tileType == "string") return tileType;
 				this.startActors.push(
-				 	tileType.create(new Vec(x, y), ch));
+					tileType.create(new Vec(x, y), ch));
 				return "empty";
 			})
 		})
