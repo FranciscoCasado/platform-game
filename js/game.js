@@ -2,7 +2,7 @@ import { Level, simpleLevelPlan } from "./levels.js";
 import { DOMDisplay } from "./display.js";
 
 
-console.log("Loading");
+console.log('Loading');
 
 let simpleLevel = new Level(simpleLevelPlan);
 console.log(`rows: ${simpleLevel.height}, columns: ${simpleLevel.width}`);
