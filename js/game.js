@@ -1,33 +1,51 @@
 import { Level, simpleLevelPlan } from "./levels.js";
 import { DOMDisplay } from "./display.js";
+import { State } from "./state.js";
+import { trackKeys } from "./keys.js";
 
-class State {
-	constructor(level, actors, status) {
-		this.level = level;
-		this.actors = actors;
-		this.status = status;
-	}
 
-	static start(level) {
-		return new State(level, level.startActors, "playing");
+function runAnimation(frameFunc) {
+	let lastTime = null;
+	function frame(time) {
+		if (lastTime != null) {
+			let timeStep = Math.min(time - lastTime, 100) / 1000;
+			if (frameFunc(timeStep) === false) return;
+		}
+		lastTime = time;
+		requestAnimationFrame(frame);
 	}
-
-	get player() {
-		return this.actors.find(a => a.type == "player");
-	}
+	requestAnimationFrame(frame);
 }
 
+const arrowKeys = trackKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
 
-const runGame = function () {
-	console.log("Loading");
+function runLevel(level, Display) {
+	let display = new Display(document.body, level);
+	let state = State.start(level);
+	let ending = 3;
 
+	return new Promise(resolve => {
+		runAnimation(time => {
+			state = state.update(time, arrowKeys);
+			display.syncState(state);
+
+			if (state.status == "playing") {
+				return true;
+			} else if (ending > 0) {
+				ending -= time;
+				return true;
+			} else {
+				resolve(state.status);
+				return false;
+			}
+		});
+	});
+}
+
+const runGame = async function () {
 	let simpleLevel = new Level(simpleLevelPlan);
-	console.log(`rows: ${simpleLevel.height}, columns: ${simpleLevel.width}`);
-
-	const display = new DOMDisplay(document.body, simpleLevel);
-	console.log(display.dom);
-
-	display.syncState(State.start(simpleLevel));
+	let status = await runLevel(simpleLevel, DOMDisplay);
+	if (status == "won") console.log("You have won!");
 };
 
 window.runGame = runGame;
