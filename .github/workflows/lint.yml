@@ -22,3 +22,6 @@ jobs:
 
       # Run ESLint
       - uses: eslint/github-action@v0
+      
+      # Run Jest
+      - run: yarn test
