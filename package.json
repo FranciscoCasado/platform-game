@@ -7,6 +7,9 @@
   "repository": "https://github.com/FranciscoCasado/platform-game.git",
   "author": "Francisco Casado Castro <hola@franciscocasado.cl>",
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.22.8",
