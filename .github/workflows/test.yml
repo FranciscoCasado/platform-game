@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    name: Run ESLint
+    name: Run Jest
     runs-on: ubuntu-latest
     steps:
       
@@ -19,6 +19,6 @@ jobs:
 
       # Install your dependencies
       - run: yarn install --frozen-lockfile
-
-      # Run ESLint
-      - uses: eslint/github-action@v0
+      
+      # Run Jest
+      - run: yarn test
