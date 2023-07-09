@@ -3,14 +3,20 @@
   "version": "0.0.1",
   "description": "A simple platform game",
   "main": "js/game.js",
+  "type": "module",
   "repository": "https://github.com/FranciscoCasado/platform-game.git",
   "author": "Francisco Casado Castro <hola@franciscocasado.cl>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^8.43.0"
+    "@babel/core": "^7.22.8",
+    "@babel/preset-env": "^7.22.7",
+    "babel-jest": "^29.6.1",
+    "eslint": "^8.43.0",
+    "jest": "^29.6.1"
   },
   "scripts": {
-    "eslint:github-action": "eslint js/"
+    "eslint:github-action": "eslint js/",
+    "test": "jest"
   }
 }

@@ -26,3 +26,5 @@ jspm_packages/
 # Optional eslint cache
 .eslintcache
 
+# Jest Coverage report
+coverage
