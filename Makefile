@@ -1,2 +1,5 @@
 lint:
-	yarn run eslint --fix js/*.js
+	yarn lint
+
+cov:
+	open coverage/lcov-report/index.html
