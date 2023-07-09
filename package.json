@@ -6,7 +6,9 @@
   "repository": "https://github.com/FranciscoCasado/platform-game.git",
   "author": "Francisco Casado Castro <hola@franciscocasado.cl>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "typescript": "^5.1.6"
+  },
   "devDependencies": {
     "eslint": "^8.43.0"
   },
